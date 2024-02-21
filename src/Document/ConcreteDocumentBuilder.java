@@ -1,10 +1,6 @@
 package Document;
 import java.util.List;
 
-import Elements.Header;
-import Elements.MyList;
-import Elements.Paragraph;
-
 public class ConcreteDocumentBuilder implements DocumentBuilder {
     private Document document;
     private static ConcreteDocumentBuilder instance;
@@ -21,21 +17,6 @@ public class ConcreteDocumentBuilder implements DocumentBuilder {
     }
 
     @Override
-    public void buildHeader(String text) {
-        document.addElement(new Header(text));
-    }
-
-    @Override
-    public void buildParagraph(String text) {
-        document.addElement(new Paragraph(text));
-    }
-
-    @Override
-    public void buildList(String[] items) {
-        document.addElement(new MyList(items));
-    }
-
-    @Override
     public void addElement(DocumentElement element) {
         document.addElement(element);
     }
@@ -43,16 +24,6 @@ public class ConcreteDocumentBuilder implements DocumentBuilder {
     @Override
     public void removeElement(DocumentElement element) {
         document.removeElement(element);
-    }
-
-    @Override
-    public void editElement(int elementIndex, String text) {
-        document.editElement(elementIndex, text);
-    }
-
-    @Override
-    public void editList(int elementIndex, String[] list) {
-        document.editList(elementIndex, list);
     }
 
     @Override
